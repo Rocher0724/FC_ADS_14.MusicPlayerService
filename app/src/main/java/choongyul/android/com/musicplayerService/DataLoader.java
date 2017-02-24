@@ -1,4 +1,4 @@
-package choongyul.android.com.musicplayer;
+package choongyul.android.com.musicplayerService;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -6,16 +6,12 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.provider.ContactsContract;
 import android.provider.MediaStore;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
 /**
  * Created by myPC on 2017-02-01.

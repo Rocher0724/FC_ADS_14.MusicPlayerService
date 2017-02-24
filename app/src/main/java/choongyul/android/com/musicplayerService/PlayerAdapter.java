@@ -1,4 +1,4 @@
-package choongyul.android.com.musicplayer;
+package choongyul.android.com.musicplayerService;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

@@ -1,4 +1,4 @@
-package choongyul.android.com.musicplayer;
+package choongyul.android.com.musicplayerService;
 
 import android.Manifest;
 import android.annotation.TargetApi;
@@ -9,10 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 

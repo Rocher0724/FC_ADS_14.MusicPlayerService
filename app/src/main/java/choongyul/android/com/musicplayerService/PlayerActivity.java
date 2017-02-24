@@ -1,4 +1,4 @@
-package choongyul.android.com.musicplayer;
+package choongyul.android.com.musicplayerService;
 
 import android.content.Intent;
 import android.media.AudioManager;
@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
@@ -15,7 +14,12 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import static choongyul.android.com.musicplayer.App.player;
+import static choongyul.android.com.musicplayerService.App.STOP;
+import static choongyul.android.com.musicplayerService.App.PLAY;
+import static choongyul.android.com.musicplayerService.App.PAUSE;
+import static choongyul.android.com.musicplayerService.App.playStatus;
+import static choongyul.android.com.musicplayerService.App.player;
+import static choongyul.android.com.musicplayerService.App.position;
 
 public class PlayerActivity extends AppCompatActivity {
     ImageButton mImgLeftBtn, mImgRightBtn, mImgPlayBtn;
@@ -26,11 +30,6 @@ public class PlayerActivity extends AppCompatActivity {
     SeekBar mSeekBar;
     TextView mTxtDuration, mTxtCurrent;
 
-    private static final int PLAY = 0;
-    private static final int PAUSE = 1;
-    private static final int STOP = 2;
-    private static int playStatus = STOP;
-    int position = 0; // 현재 음악 위치
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,7 +140,6 @@ public class PlayerActivity extends AppCompatActivity {
         public void onClick(View v) {
         switch (v.getId()) {
             case R.id.imgPrevBtn:
-                Log.d("여기는 왼쪽클릭" , "진입 했다.");
                 prevMusic();
                 break;
             case R.id.imgNextBtn:
@@ -186,8 +184,6 @@ public class PlayerActivity extends AppCompatActivity {
     }
 
     private void playStop() {
-        player.start();
-        playStatus = PLAY;
 
         mImgPlayBtn.setImageResource(android.R.drawable.ic_media_pause);
 
@@ -198,14 +194,10 @@ public class PlayerActivity extends AppCompatActivity {
         thread.start();
     }
     private void playPlay() {
-        player.pause();
         mImgPlayBtn.setImageResource(android.R.drawable.ic_media_play);
-        playStatus = PAUSE;
     }
     private void playPause() {
         player.seekTo(player.getCurrentPosition());
-        player.start();
-        playStatus = PLAY;
         mImgPlayBtn.setImageResource(android.R.drawable.ic_media_pause);
     }
 
@@ -226,7 +218,7 @@ public class PlayerActivity extends AppCompatActivity {
 
         @Override
         public void onPageSelected(int position) {
-            PlayerActivity.this.position = position;
+            App.position = position;
             initPlayerSetting();
         }
 

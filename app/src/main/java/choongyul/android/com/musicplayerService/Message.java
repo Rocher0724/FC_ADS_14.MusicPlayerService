@@ -1,4 +1,4 @@
-package choongyul.android.com.musicplayer;
+package choongyul.android.com.musicplayerService;
 
 import android.content.Context;
 import android.widget.Toast;

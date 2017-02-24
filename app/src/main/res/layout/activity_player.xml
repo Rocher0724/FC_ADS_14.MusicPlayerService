@@ -5,7 +5,7 @@
     android:id="@+id/activity_player"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="choongyul.android.com.musicplayer.PlayerActivity"
+    tools:context="choongyul.android.com.musicplayerService.PlayerActivity"
     android:background="#14000000">
 
 
